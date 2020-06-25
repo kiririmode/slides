@@ -1,4 +1,3 @@
-
 name: inverse
 layout: true
 class: center, middle, inverse
@@ -6,7 +5,7 @@ class: center, middle, inverse
 
 class: center, middle
 
-## DevOps
+# DevOps
 
 2020/06/29 TechBall
 
@@ -15,36 +14,39 @@ TEC 木利友一
 ---
 layout: false
 
-## Agenda
+# Agenda
 
-1. DevOpsとは何か・その原則
-2. 始め方
-3. フロー改善のためのプラクティス
-4. フィードバックのためのプラクティス
-5. 継続的な改善
+1. DevOpsとは何か
+2. DevOpsを何で測るか
+3. DevOpsの原則
 
 ---
 
-## DevOpsとは何か
+# DevOpsとは何か
 
+- 何が目的なのか
 - DevとOpsが仲良くすればDevOpsなのか
 - 自動化すればDevOpsなのか
 - ツールを導入すればDevOpsなのか
   - デプロイメントパイプラインを組めばDevOpsなのか
   - IaCしておけばDevOpsなのか
 
-## 残念なDevOps
+---
+# 残念なDevOps
 
 <cite>[あなたの組織は「残念なDevOps」になっていませんか？ DevOps実現のための計測の重要性【デブサミ2019夏】](https://codezine.jp/article/detail/11634)</cite>
 
 - スーパーエンジニアに2人分の働きをしてもらうのがDevOpsである
   - 「なんでもできる人材」が求められ、組織がついていけずに疲弊する
 - 社内でDevOpsを推進しようとしているものの、現場にさっぱり浸透しない
-  - ウォーターフォールがメインの組織ではアプリ開発者とインフラ運用者は全く違う組織である。にもかかわらず、その隔たりを解消しないままDevOpsとか言っちゃう
+  - ウォーターフォールがメインの組織ではアプリ開発者とインフラ運用者は全く違う組織である。
+  - にもかかわらず、その隔たりを解消しないままDevOpsとか言っちゃう
 - DevOpsってつまり自動化ツールを導入すればいいんでしょ？
   - 必要条件ではあるが十分条件ではない
 
-## DevOpsとは何か (Google)
+---
+
+# DevOpsとは何か (Google)
 
 DevOps とは、ソフトウェアデリバリーの速度とサービスの信頼性の向上、ソフトウェアの関係者間で共有するオーナー権限の構築を目的とする、組織的で文化的な仕組みです
 
@@ -52,7 +54,7 @@ DevOps とは、ソフトウェアデリバリーの速度とサービスの信�
 
 ---
 
-## DevOpsとは何か (Gartner)
+# DevOpsとは何か (Gartner)
 
 - DevOps represents a change in IT culture, focusing on rapid IT service delivery through the adoption of agile, lean practices in the context of a system-oriented approach. DevOps emphasizes people (and culture), and it seeks to improve collaboration between operations and development teams. DevOps implementations utilize technology — especially automation tools that can leverage an increasingly programmable and dynamic infrastructure from a life cycle perspective.
 - 意訳 
@@ -62,601 +64,411 @@ DevOps とは、ソフトウェアデリバリーの速度とサービスの信�
 
 <cite>[DevOps](https://www.gartner.com/en/information-technology/glossary/devops)</cite>
 
-## DevOpsとは何か (DevOps導入指南)
+---
 
-Dev(開発)と Ops(運用)が密に強調・連携して、ビジネス価値を高めようとする働き方や文化を指します。
-DevOps では、開発と運用が協調することにより、多くのチーム間のオーバヘッドを解消することによって、省力化して開発に速さを与え、お互いの理解によって変更に柔軟性を与えます。
+# Gene Kimの定義
 
-<cite>[DevOps導入指南 Infrastructure as Codeでチーム開発・サービス運用を効率化する](https://www.amazon.co.jp/exec/obidos/ASIN/B01M4KNOFM/hatena-blog-22/)</cite>
+- The architecture, technical practices, and cultural norms that enable us to ...
+  - increase our ability to deliery application and services quickly and safely, which enables rapid experimentation and innovations, and the fastest delivery of value to our customers while ensuring world-class security, reliability, and stability so that we can win in the marketplace
+- 意訳
+  - アーキテクチャであり、技術的プラクティスであり、文化的な常識。何をするためかというと…
+    - アプリケーションとサービスを高速かつ安全に届ける能力を強化する。それにより、
+      - 高速な実験とイノベーションを実現する
+      - 世界レベルのセキュリティ、信頼性、安定性を確保しながら顧客への最速の価値提供を実現する
+  - それにより市場で勝てるようにする
 
-## DevOpsとは何か (GitLab実践ガイド)
+<cite>[DevOpsDays Tokyo 2019開催。DevOpsの伝道者Gene Kimのキーノートセッションを紹介](https://thinkit.co.jp/article/16052)</cite>
 
-ビジネスやプロジェクトを成功させるために、組織文化とツールの両面を改善させることで、ビジネスアジリティを向上させ、リスクを低減する活動
+---
 
-<cite>[GitLab実践ガイド](https://www.amazon.co.jp/exec/obidos/ASIN/B079DL362C/hatena-blog-22/)</cite>
-
-## DevOpsとは何か 
+# DevOpsとは
 
 - 目的はビジネス・プロダクトの成功
 - サービスのデリバリ速度の向上によって実現する。
-- そのためにはDevとOpsの協調が必要
+- DevとOpsの協調はその手段
 
 ---
 template: inverse
 
-## DevOpsの略歴
+# DevOpsの略歴
 
 ---
 layout: false
 
-## DevOpsの略歴
+# リーン運動
 
-- リーン運動
-  - 品質・顧客満足度・従業員幸福度を引き上げるために最も大事なことは、製造のリードタイムを短縮すること
-  - 原則 ([リーンソフトウェア開発（りーんそふとうぇあかいはつ）](https://www.itmedia.co.jp/im/articles/0803/10/news113.html)より)
-    - 無駄をなくす
-    - 品質を作り込む
-    - 知識を作り出す
-    - 決定を遅らせる
-    - 早く提供する
-    - 人を尊重する
-    - 全体を最適化する
-- アジャイル
-  - [アジャイルソフトウェア宣言](https://agilemanifesto.org/iso/ja/manifesto.html)
-    - 動くソフトウェアを頻繁・漸進的にリリース
-    - 小規模・自発的な意欲を持つ組織
-  - [10 deploys per day: Dev & Ops cooperation at Flickr](https://www.slideshare.net/jallspaw/10-deploys-per-day-dev-and-ops-cooperation-at-flickr)
-    - DevOpsの原点とされるFlickrの発表
-      - 開発と運用の共通目標を作る 
-        - Ops' job is NOT to keep the site stable and fast. 
-        - Ops' job is to enable the business
-    - めちゃくちゃ良い内容なのでぜひご覧ください
-  - 継続的デリバリー
-    - コードとインフラを常にデプロイ可能な状態に保つ
-    - trunk (master)にチェックインされたコードは本番環境に安全にデプロイできる
-  - トヨタのカタ
-    - 習慣的に業務改善を実践するという構造を作り上げる
-      - 結果の改善を生むのは日々の実践
-    - 何かトラブルが起きたときには即座にラインが止まってしまうようなギリギリなマゾい設定にする ()
-      - > 目的が「目標生産量の達成」なら問題を回避できるシステムのほうが好ましく見えるだろうが目的が「改善し続けて生き残る」なら、自由度の高いシステムは問題の原因を知ることを困難にするから許されない。自由度の高いシステムは問題を本質的に改善しない。
-
-# 略歴
-
-
-
-前職で Cloud Provider としての API 設計を RESTful API として設計していたがつらかった
-
-- 階層構造を持つリソースを扱うのがつらい
-  - Network - Hypervisor - VLAN - VM ...
-- 階層構造を持つリソースに対する操作を HTTP Method とマッピングしていくのがつらい
-  - ネットワークの結線って、どのリソースに対する操作なんだろう
-    - Network ? VLAN ? それとも、VM に対して新しく NIC というリソースを定義?
-- PUT/POST/DELETE/GET を各リソース毎に実装していくのがつらい
-  - 開発工数そのものがつらい
-  - そもそも実装の必要があるか?という話はあるが
+- 品質・顧客満足度・従業員幸福度を引き上げるために最も大事なことは、製造のリードタイムを短縮すること
+- 原則 ([リーンソフトウェア開発（りーんそふとうぇあかいはつ）](https://www.itmedia.co.jp/im/articles/0803/10/news113.html)より)
+  - 無駄をなくす
+  - 品質を作り込む
+  - 知識を作り出す
+  - 決定を遅らせる
+  - 早く提供する
+  - 人を尊重する
+  - 全体を最適化する
 
 ---
 
-# REST ではない選択肢としての RPC
+# アジャイル
 
-- Dropbox は API v2. で REST をやめ、実質的に RPC に移行した
-  - [Scaling and securing the Dropbox API](https://getputpost.co/scaling-and-securing-the-dropbox-api-974daa4e96be)
-      - But trying to force REST on something that doesn’t fit can result in pain, as we learned with the previous version of our API.
-- DynamoDB 等の AWS サービスも RPC を採用しているものもある
-  - [DynamoDB や Route53 などの AWS API が独特な仕様なので紹介](https://gist.github.com/voluntas/811240c5b6a169ae1c6ac401e0197417)
-      - HTTP Header でメソッドを指定
-          - `X-Amz-Target: DynamoDB_20120810.PutItem `
+- [アジャイルソフトウェア宣言](https://agilemanifesto.org/iso/ja/manifesto.html)
+  - 動くソフトウェアを頻繁・漸進的にリリース
+  - 小規模・自発的な意欲を持つ組織
 
 ---
 
-# mode 2 共有会
+# アジャイルインフラとベロシティ活動
 
-- RESTful API の設計 (とくにリソース設計)って結構むずかしいよねという話になった
-- そういう議事録に対し、伊藤さんが techball の声をかけてくれた
-
----
-
-# 最初に聞いておきたい
-
-1. プロジェクトで API サーバを開発したことがある人?
-2. API のスタイルとして Restful API を選んだ人?
+- [10 deploys per day: Dev & Ops cooperation at Flickr](https://www.slideshare.net/jallspaw/10-deploys-per-day-dev-and-ops-cooperation-at-flickr)
+  - DevOpsの原点とされるFlickrの発表
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/fqqBs2mBGMeagU" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/jallspaw/10-deploys-per-day-dev-and-ops-cooperation-at-flickr" title="10+ Deploys Per Day: Dev and Ops Cooperation at Flickr" target="_blank">10+ Deploys Per Day: Dev and Ops Cooperation at Flickr</a> </strong> from <strong><a href="//www.slideshare.net/jallspaw" target="_blank">John Allspaw</a></strong> </div>
+  - めちゃくちゃ良い内容なのでぜひご覧ください
+    - 今日の説明も実はこちらを使いたかった
 
 ---
 
-# API のスタイル
+### 継続的デリバリー
 
-- 世の中 Restful API が主流のように見える <sup>[要出典]</sup>
-- 一方で、RPC 型のスタイルも見られるようになってきた。
-
----
-
-# RPC 型の例
-
-- [JSON-RPC](https://www.jsonrpc.org/)
-- [XML-RPC](http://xmlrpc.com/)
-- [gRPC](https://grpc.io/)
+- コードとインフラを常にデプロイ可能な状態に保つ
+- trunk (master)にチェックインされたコードは本番環境に安全にデプロイできる
 
 ---
 
-# 第3の道
+### トヨタのカタ
 
-- [GraphQL](https://graphql.org/)
-- Others
+<img src="https://cdnshop.nikkeibp.co.jp/0000/catalog/P51380/P51380_common_pc.jpg?1593115922204" height="100px">
 
----
+- 習慣的に業務改善を実践するという構造を作り上げる
+  - 結果の改善を生むのは日々の実践
+  - 何かトラブルが起きたときには即座にラインが止まってしまうようなギリギリなマゾい設定にする ()
+    - > 目的が「目標生産量の達成」なら問題を回避できるシステムのほうが好ましく見えるだろうが目的が「改善し続けて生き残る」なら、自由度の高いシステムは問題の原因を知ることを困難にするから許されない。自由度の高いシステムは問題を本質的に改善しない。
 
-# REST にするか、RPC にするか
-
-T&I は技術的選択に責任を持つことも多いと思います。
-
-- その技術選択にきちんとした理由付けを自分の中でしていますか?
-- それをプロジェクトの関係者に説明できますか?
-
-.footnote[ちなみに、ぼくはそこを説明したことはないです(プロジェクトに参画したとき、だいたい API のスタイルは決まっていた)]
+<cite>https://scrapbox.io/nishio/%E3%83%88%E3%83%A8%E3%82%BF%E3%81%AE%E3%82%AB%E3%82%BF</cite>
 
 ---
 template: inverse
 
-# RPC とは何なのか
-
----
-layout: false
-## RPC
-
-- `R`emote `P`rocedure `C`all
-- [wikipedia (en)](https://en.wikipedia.org/wiki/Remote_procedure_call)
-  - remote procedure call (RPC) is when a computer program causes a procedure (subroutine) to execute in a different address space (commonly on another computer on a shared network), which is coded as if it were a normal (local) procedure call, without the programmer explicitly coding the details for the remote interaction.
-  - 他のコンピュータ上の procedure を (プログラマが明示的に気にすることなくあたかもローカルの procedure call のように)呼び出せる
-
-Resource ではなく、**Procedure** を対象にしていることがポイント
+# DevOpsを何で測るか
 
 ---
 
-それではいくつか具体的な例を見てみましょう
+# SDO Performance
+
+- [State of Devops 2019](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf)
+  - DORA (DevOps Research and Assesmet; Google が買収) のレポート
+  - 6年に渡り31,000人からデータを回収し統計的に分析
+
+## SDO Performance
+
+Software Delivery and Operational Performance: 
+
+<img src="imgs/sdo-performance.png" width=80%>
 
 ---
 
-## 例: JSON-RPC
+# Four Key Metrics
 
-```json
-POST /myservice HTTP/1.1
-Host: rpc.example.com
-Content-Type: application/json
-Content-Length: ...
-Accept: application/json
+- GartnerのTechnology Rader (2019)で `ADOPT` 評価
+  - [Four Key Metrics](https://www.thoughtworks.com/radar/techniques/four-key-metrics)
+- 企業の成功と統計的な相関がある
 
-{
-    "jsonrpc": "2.0",
-    "method": "sum",
-    "params": { "b": 34, "c": 56, "a": 12 },
-    "id": 123
-}
-```
+<img src="imgs/four-key-metrics.jpg" width=80% />
 
 ---
 
-## 例: XML-RPC
+# Elite Performer
 
-```xml
-POST /RPC2 HTTP/1.0
-User-Agent: Frontier/5.1.2 (WinNT)
-Host: betty.userland.com
-Content-Type: text/xml
-Content-length: 181
-
-<?xml version="1.0"?>
-<methodCall>
-    <methodName>examples.getStateName</methodName>
-    <params>
-        <param>
-            <value><i4>41</i4></value>
-        </param>
-    </params>
-</methodCall>
-```
+<img src="imgs/elite-performance.png" width=80% />
 
 ---
 
-# Fielding の言う RPC
+# Elite Performer になるのは夢物語か
 
-Roy T. Fielding は REST の提唱者です。
+<img src="imgs/elite-performer.png" width=80% />
 
-![Roy T. Fielding](https://roy.gbiv.com/pics/roy_fielding.jpg)
+# どうやって SDO Performance を向上させるか
 
-[REST を提唱した論文](https://www.ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_5)の中で、Fielding は RPC について以下のように記述しています。
-
-- > What distinguishes RPC from other forms of network-based application communication is .red[**the notion of invoking a procedure on the remote machine**],
-- > What makes HTTP significantly different from RPC is that .red[**_the requests are directed to resources using a generic interface with standard semantics_**] that can be interpreted by intermediaries almost as well as by the machines that originate services.
+<img src="imgs/sdo-performance-model.png" width=80% />
 
 ---
 template: inverse
 
-# RESTful API とは何なのか
-
----
-layout: false
-## REST
-
-- `RE`epresentational `S`tate `T`ransfer
-- [Roy T. Fielding](https://roy.gbiv.com/) の博士論文 ["Architectural Styles and the Design of Network-based Software Architectures"](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm) で定義
+# DevOpsの原則
 
 ---
 
-## REST
+# DevOpsの原則
 
-- WEB の｢アーキテクチャスタイル｣
-  - 複数のアーキテクチャに共通する性質、様式、作法あるいは流儀を指す言葉
-  - ｢クライアント・サーバ｣スタイルに対し、いくつかの制約が追加されたもの
-- API の形態に REST を適用したものが RESTful API (という定義にします)
-  - wikipedia では [RESTful Web Services](https://en.wikipedia.org/wiki/Representational_state_transfer) と呼んでいます
+1. 開発→運用→顧客の左から右へのワークフローを高速にする
+1. バリューストリームのあらゆるステージで、すばやくてコンスタントな右から左へのフィードバックフローを実現すること
+1. 成功と失敗の両方から組織として学習し教訓を得ていく生産的な高信頼マネジメントの企業文化を生み出す
 
----
-
-## REST における重要な概念
-
-.left-column[
-  ### Resource
-]
-.right-column[
-> Any information that can be named can be a resource
-
-WEB 上に存在する、**名前**を持ったありとあらゆる情報
-]
+これらの原則から導かれるプラクティスは後ほど
 
 ---
 
-## REST における重要な概念
+# デプロイリードタイムの重視
 
-.left-column[
-  ### Resource
-]
-.right-column[
-> Any information that can be named can be a resource
+エンジニアが変更をチェックインしてから、当該の変更が本番環境で稼働し、フィードバック・測定データを入手するまでの時間
 
-WEB 上に存在する、**名前**を持ったありとあらゆる情報
-
-- 名前: URI
-  - 他のリソースと区別するために一意の名前を持つ
-- リソースには状態がある。
-  - 状態が変化すると、リソースの表現も変化する。
-]
-
----
-
-## REST における重要な概念
-
-.left-column[
-  ### Resource
-  ### Representation
-]
-.right-column[
-> A representation is a sequence of bytes, plus representation metadata to describe those bytes.
-
-- サーバとクライアントの間でやり取りするデータのこと
-- `representation metadata` の例:
-    - media type
-    - last-modified time
-- 表現形式はさまざま。
-  - TXT、JSON、XML、etc.
-]
+- よく見られるシナリオ
+  - デプロイリードタイム数ヶ月
+    - 最後の段階で使い物にならないことがわかる
+      - マージできない
+      - テストしたらうまくいかない
+- 理想: 数分単位
+  - ディベロッパーは自身の仕事に対するフィードバックをコンスタントに受け取る
+- 実現するためには
+  - 小さなコード変更をこまめにチェックイン
+  - 変更に対する自動テスト
+  - 本番デプロイ
 
 ---
 
-# REST の導出
+# 組織とアーキテクチャの構築
 
-- REST というアーキテクチャスタイルは、既存の Client-Server に、さらに制約を課していったもの。
-- 皆さんのこれまでの RESTful API はどこまでこれらの制約を満たしているでしょうか
-  - 全部満たしていないと REST と呼べないわけではないです。
+## [コンウェイの法則](https://en.wikipedia.org/wiki/Conway%27s_law)
 
----
+> システムを設計する組織は組織内のコミュニケーション構造のコピーになっているような設計しか作り出せない
 
-# REST の導出
+## 組織のパターン
 
-.left-column[
-  ### Client-Server
- ]
+- 職能指向
+  - 専門能力の育成・活用、それに伴うコスト削減
+  - キャリア形成とスキル開発
+- 市場指向
+  - 複数の職能横断的なメンバ
+  - 顧客ニーズに素早く対応
 
-.right-column[
-クライアントはサーバにリクエストを送り、サーバはそれに対してレスポンスを返す。
+DevOps では市場指向を取ることが多い
 
-#### 利点
+--- 
 
-- クライアントをマルチプラットフォームにできる
-- クライアントに UI を担当させることで、サーバ側をシンプルにできる
-  - スケーラビリティの向上に寄与
-- コンポーネント(クライアント、サーバそれぞれ)を独立して進化させられる
-]
+# 職能指向を取らない理由
 
----
+- 職能指向の場合、リードタイムが長くなる
+  - 職能ごとにチームが構成
+    - チームごとに目的が異なる
+  - チーム間の受け渡しが必要
+    - [Martin Fowlerの言う "Backlog Coupling"](https://martinfowler.com/articles/talk-about-platforms.html)
+      - 一つのことを行おうとした時に複数のチームのバックログを積まなければならない
+      - ![hoge](https://martinfowler.com/articles/talk-about-platforms/backlog-coupling.png)
+  - 各チームのリソースが様々なサービス開発で共用され奪い合いになる
+    - リソースアサインを調整する管理職の能力がチームの限界を規定し得る
 
-# REST の導出
+--- 
 
-.left-column[
-  ### Client-Server
-  ### Stateless
- ]
+# 市場指向を取る理由
 
-.right-column[
-クライアントの状態をサーバで管理しない
+- 機能開発だけでなく、テスト、セキュリティ確保、本番環境のサービスデプロイ、サポートまでを担当する
+- 職能横断的で高い独立性を持つが故に他のチームに頼らずにアジリティを発揮できる
 
-#### 利点
+## 現実的に無理では？
 
-- サーバ側の実装を簡略化できる
-- リクエストに応えた後、サーバは計算リソースを開放可能 (scalability)
-- 監視システムは、リクエストの内容さえ見ればその要求についてすべてわかる (visibility)
-- 一応、博士論文には reliability の向上についても記載がありましたがよくわからん。
+1. 各種のスキルを持った要員をチーム内に配置する
+2. 自動化されたセルフサービスプラットフォームを通じてチームに職能を提供する
 
-#### 欠点
-
-- 同じ情報がリクエスト毎に繰り返される ((network) performance)
-- クライアント側に状態を持つので、アプリの一貫した挙動を制御しにくい
-  - 多様なクライアントに対応しないといけない
-]
+- [DevSecOps](https://en.wikipedia.org/wiki/DevOps#DevSecOps,_Shifting_Security_Left)
+- [BizDevOps](https://ja.wikipedia.org/wiki/BizDevOps)
 
 ---
 
-# REST の導出
-
-.left-column[
-  ### Client-Server
-  ### Stateless
-  ### Cacheability
- ]
-
-.right-column[
-リソースの鮮度に基づいて、一度取得したリソースをクライアント側で使い回す。
-
-(→レスポンスには、キャッシュ可能か否かをラベル付けする必要がある)
-
-#### 利点
-
-- サーバ･クライアント間の通信削減によるネットワーク帯域･処理時間の削減 (efficiency、(user-perceived) performance)
-
-#### 欠点
-
-- 古いデータを取得しかねないことによる情報の信頼性の低下 (reliability)
-]
-
----
-
-# REST の導出
-
-.left-column[
-  ### Client-Server
-  ### Stateless
-  ### Cacheability
-  ### Uniform Interface
- ]
-
-.right-column[
-URI で指し示したリソースに対する操作を、統一した限定的なインタフェースで行う。
-
-- たとえば HTTP/1.1 では、Method は `GET` や `POST` などに限定される。
-
-#### 利点
-
-- インタフェースの柔軟性に制限を加えることで、全体のアーキテクチャがシンプルになる
-- インタフェースの統一によりクライアント･サーバの実装の独立性が向上 (independent evolvability)
-
-#### 欠点
-
-- アプリケーションに最適化できない (efficiency)
-]
-
----
-
-# REST の導出
-
-.left-column[
-  ### Client-Server
-  ### Stateless
-  ### Cacheability
-  ### Uniform Interface
-  ### Layered System
- ]
-
-.right-column[
-
-各コンポーネントが、相互作用している直接のレイヤー以外を「見る」ことができない。
-これにより、階層化アーキテクチャを構成できる。
-
-#### 利点
-
-- システム全体の複雑さが制限でき、各サブシステムの独立性を促進できる (independence)
-- サーバ・クライアント間に LB や Proxy、Firewall 等を設置できる
-
-#### 欠点
-
-- データ処理のオーバヘッド、レイテンシの増大 ((user-perceived performance))
-]
-
----
-
-# REST の導出
-
-.left-column[
-  ### Client-Server
-  ### Stateless
-  ### Cacheability
-  ### Uniform Interface
-  ### Layered System
-  ### Code on Demand (Optional)
- ]
-
-.right-column[
-
-プログラムコードをサーバからダウンロードし、クライアント側でそれを実行する。
-
-例
-- Applets (無言)
-- Flash (無言)
-- JavaScript ...?
-  - REST の恩恵…なのか…? ホントに?
-
-#### 利点
-
-- クライアントの事前実装が不要となりクライアントを簡素化できる
-- サービス展開後に機能をダウンロードできるようになるため拡張性が向上する
-
-#### 欠点
-
-- アプリケーションプロトコルの可視性が低下する
-]
-
----
-
-## REST のまとめ
-
-Restful API を構築するためには、リソースとその状態、そしてその表現形式を定義する必要がある。
-
-### アーキテクチャに加わる制約
-
-- Client-Server
-- Stateless
-- Cacheability
-- Uniform Interface
-- Layered System
-- Code on Demand (Optional)
-
----
 template: inverse
 
-# REST と RPC の違い、メリットとデメリット
-
----
-layout: false
-
-## 例: HTTP Method から見る REST、RPC の違い
-
-- REST
-  - PUT/GET/POST/DELETE/PATCH
-- RPC:
-  - XML-RPC: POST
-  - JSON-RPC: (通常は) POST
-  - gRPC: POST
-
-## この違いはどこから来ているのか
-
-- REST
-  - Resource は操作対象
-  - それに対する操作は HTTP Method でマッピングされる
-    - CRUD に対応する HTTP Method を使用する必要がある
-- RPC
-  - "Procedure Call" であり、実施すべき操作は "Procedure" そのもので示されている
-    - HTTP Method で操作を語る必要がない
-    - だから、「リクエストの情報」さえ送信できれば、HTTP Method は何でも良い
-      - 通常は POST で実装されるが、[JSON-RPC では GET で実装されるケースもある](https://www.simple-is-better.org/json-rpc/transport_http.html#get-request)?
+# プラクティス: ワークフローの高速化
 
 ---
 
-## 例: URI に見る REST・RPC の違い
+# オンデマンドでの環境構築
 
-- REST: [Best Practices for Designing a Pragmatic RESTful API](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api) より
-  - `GET /tickets`  - Retrieves a list of tickets
-  - `GET /tickets/12` - Retrieves a specific ticket
-  - `POST /tickets` - Creates a new ticket
-  - `PUT /tickets/12` - Updates ticket #12
-  - `PATCH /tickets/12` - Partially updates ticket #12
-  - `DELETE /tickets/12` - Deletes ticket #12
-- RPC:
-  - `/myservice`
-  - `/RPC2`
+- 本番環境に近い環境を早い段階で実現する
+  - 日常業務の一環として本番に近い環境でコードを実行・テストでき、早い段階でフィードバックが得られる
+- 既知の"良い環境"を定義し、作成を自動化する
+  - 組織の集合知を体現、安定してセキュア
 
-## この違いはどこから来ているのか
+## さらに
 
-- REST:
-  - 操作したい個々のリソースの URI を指定する
-    - アドレス指定可能な単位はリソースである
-  - システムの動作は、リソースの背後に隠される。
-    - エンティティの作成、更新、または削除の副作用として
-- RPC:
-  - メソッドを呼び出すエンドポイントの URI を指定する
-  - アドレス指定可能な単位はプロシージャ
-    - 問​​題ドメインのエンティティはプロシージャの後ろに隠される
+何か問題が起きた時には修復するよりも再構築する
 
----
-# RPC のメリデメ
+- [Immutable Infrastructure](https://ja.wikipedia.org/wiki/Immutable_Infrastructure)
 
-### メリット
+人類に Mutability を管理するのは早すぎる
 
-- API 設計の優先度はクライアント・サーバ双方のプログラミングの容易さと実行効率であり、RPC はそれに適合しやすい
-  - API のプロシージャの学習は新しいプログラミングライブラリの学習と類似
-  - RPC の実装も効率的である傾向がある
-  - プログラマにとって、簡単かつ直接的
-    - 1 つのプログラムでプロシージャを作成し、別のプログラムからプロシージャを呼び出すのは API に限ったことではない
-
-### デメリット
-
-- システム間の結合度を増す
-  - 各サブシステムが「Procedure」で結合される。結果として、Procedure の持つ基本的な仮定が両システムで満たされなければならない。
-- 個々の RPC それぞれを学ぶ必要があり、異なるサービスのプロシージャ間の共通性や予測可能性はほとんどない
+- [Immutable Data Model](https://www.slideshare.net/kawasima/ss-40471672)
 
 ---
 
-## REST のメリデメ
+# リポジトリでの管理
 
-### メリット
+- コードだけでなく環境もリポジトリで管理する
+- システムの全てのコンポーネントを繰り返し確実に再現できるようになる
 
-1. 各サービスの API に、共通性、予測可能性がある
-   1. 操作 (HTTP Method) が限られるため、API 利用者からは何ができるのかが容易に理解できる
-2. Procedure での結合ではなく問題ドメインを表現するエンティティの結合になるため、システム間の結合度を弱くできる
-   1. だからこそ、任意のシステムとの連携がしやすい
-   2. see: [結合度の概念モデル](https://ja.wikipedia.org/wiki/%E7%B5%90%E5%90%88%E5%BA%A6#%E7%B5%90%E5%90%88%E5%BA%A6%E3%81%AE%E6%A6%82%E5%BF%B5%E3%83%A2%E3%83%87%E3%83%AB)
-3. REST 周りのエコシステムの発展
-4. [それぞれのリソースが固有のURIを持っているので、キャッシュ、コピー、ブックマークすることが簡単にできる](https://ja.wikipedia.org/wiki/Representational_State_Transfer#REST%E5%AF%BERPC)
-6. HTTP との親和性が高く、L7 で動作する LB、Proxy 等、HTTP の周りに発展してきた各種 SW/HW をそのまま利用できる
-7. フロントエンド技術との親和性も高い
-
-### デメリット
-
-1. リソース設計が難しい
-   1. 多段の階層関係の存在するリソースが出てくるとつらい。本当につらい
-   2. [RESTful Web アプリの設計レビューの話](https://www.slideshare.net/t_wada/restful-web-design-review) by t_wada
-)
-2. 開発すべき API 数が膨大になる
-   1. 各リソースに対して GET/POST (+PUT/DELETE) を必要とすることが多い
-   2. 見積シートは API 本数が工数に効くので、適切に係数を調整しないと価格競争力がなくなる
-3. 実装ルールが統一されていない (REST は仕様ではないので、言ったもの勝ち)
+> 運用がバージョン管理を使っているかどうかがITのパフォーマンスと会社全体の業績の両方のもっとも有効な予測因子
 
 ---
 
-# なぜ REST が敬遠されてきているか
+# デプロイメントパイプライン
 
-[クックパッドがgRPCを採用するまで
-サービス間通信で抱えていた課題と、RubyでgRPCを運用するための工夫](https://logmi.jp/tech/articles/320715)より
+- 目標
+  - 出荷可能状態の保証
+  - 全ての人に、変更によってデプロイ可能な状態が失われたことをできる限り早くフィードバックすること
 
-> さっき「RESTfulなAPIを（Garageで）作れる」って言ったんですけど、RESTなエンドポイントへのマッピングが困難なケースが増えてきているんですね。
-![gRPC in Cookpad](https://img.logmi.jp/articles/VyLoQyN5zX7u1D5vNjhMrJ.jpg)
+- ビルド、パッケージング
+- ユニットテスト、静的コード分析、テストカバレッジ分析、スタイルチェック
+- デプロイ、受け入れテスト
 
+--- 
+
+# テストの自動化と高速化
+
+- 自動テストのできるだけ早い段階で誤りを見つける
+- できる限り多くのマニュアルテストを自動化する
+  - 信頼できない自動テストよりも、少数の信頼できる自動テストを優先する
+  - 時間とともに安心のレベルを上げていく
+
+![Test Pyramid](https://martinfowler.com/bliki/images/testPyramid/test-pyramid.png)
+([Test Pyramid](https://martinfowler.com/bliki/TestPyramid.html))
 
 ---
+
+# Trunk-based Development
+
+全てのディベロッパーが少なくとも1日に1度はtrunkにチェックインする
+
+- 毎日 trunk にチェックインすることで強制的にバッチサイズを小さくできる
+- 問題が小さいうちにマージの問題点がわかる
+
+trunk に突っ込むの怖くない？
+- [Gated Commit](https://en.wikipedia.org/wiki/Gated_commit)
+  - merge 後のソースベースに対してテスト実行し、失敗したら merge しない
+
+--- 
+# 継続的インテグレーション"
+
+> 全てのディベロッパーが少なくとも1日に1度はtrunkにチェックインする
+
+- 「継続的インテグレーション」ってそもそもそういうもの (「継続的テスト」ではない)
+
+> 継続的インテグレーション、CI とは、すべての開発者の作業コピーを1日に数回、共有されたメインラインにマージすることである
+> 
+> https://ja.wikipedia.org/wiki/%E7%B6%99%E7%B6%9A%E7%9A%84%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3#cite_note-martinfowler-1
+
+- 我々の実施しているのは継続的インテグレーションなのか、継続的テストなのか
+  - 継続的テストにも価値はある
+
+
+--- 
+
+# リリースをデプロイから切り離す
+
+- デプロイ: 指定された環境に指定されたソフトウェアをインストールすること
+- リリース: 顧客に対して機能を利用可能にすること
+
+10 deploy per day、0 リリースは普通にあり得る話
+
+### 手法
+
+- Blue Green Development, Canary Release
+- Feature Toggle, Dark Launch
+
+### 今後向き合わないといけないこと
+
+組織としての承認は何に対して行うべきなのか
+
+- デプロイに対して？リリースに対して？
+- アウトプットに対して？アウトプットを作るプロセスに対して？
+
+---
+
+template: inverse
+
+# プラクティス: フィードバックの実践
+
+---
+
+- 問題の早期発見、再発防止
+  - 素早い可視化と関係者への共有
+    - 問題が見過ごされない
+  - 傷口の小さい早い段階で解決される
+- 上流での品質確保
+- 全員が自分の仕事に対するフィードバックを得て学習し組み込んでいける
+
+---
+
+# データの収集とモニタリング
+
+## あるべき姿
+
+- システム全体がどのように振る舞っているかを十分理解できるだけのデータをアプリ・環境から得られるようにする
+- 日常業務の一部として測定するデータを作るように開発・運用エンジニアが動かなければならない
+  - データを収集し可視化できるような基盤がなければならない
+
+---
+
+# データの収集とモニタリング
+
+## よくあるパターン
+
+- 開発はディベロッパーが関心を持つ事柄しかロギングしない
+- 運用は環境が落ちていないかしかモニタリングしない
+
+## 何につながるか
+
+- 仮説検証
+- MTTR の短縮
+
+---
+
+# 補足
+
+- MTTR が長くなるのは結構な割合で Dev にも責任がある。にもかかわらず運用時に Dev がいない場合、Dev はそのフィードバックを生かせず同じ失敗を繰り返す
+- 僕たちは「良いシステムを作った」と自信を持って言えるか。運用してくれる人の前で「その機能は私が開発しました」と胸を張って言えるか
+  - フィードバックが大事と言いながら、フィードバックを得る努力をしているのか
+
+---
+
+# ログ
+
+ローカルファイル出力ではなく全てのログを送信して一元管理することが望ましい
+
+- ローテーションや削除の一元管理
+- メトリクスへの変換
+
+---
+
+# 指標の可視化
+
+- 全ての人が現実を同じ姿で見られるように
+- メンバーにも責任感が生まれる
+- 透明性の確保
+
+## 指標
+
+- ビジネス指標
+  - 取引数、契約数、解約数、etc.
+- アプリケーションレベル
+  - トランザクション数、アプリケーションエラー数、etc.
+- インフラレベル
+  - CPU、ディスク、トラフィック、etc.
+
+---
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/Eg4UcLq87LU5sH?startSlide=23" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/kawasima/kawasima" title="【17-E-4】 未来はどこにいても誰にでも平等にある。 未来を創るのは自分自身だ。 ～SIerの中で生きるということ～" target="_blank">【17-E-4】 未来はどこにいても誰にでも平等にある。 未来を創るのは自分自身だ。 ～SIerの中で生きるということ～</a> </strong> from <strong><a href="//www.slideshare.net/kawasima" target="_blank">Yoshitaka Kawashima</a></strong> </div>
+
+---
+
+template: inverse
 
 # まとめ
 
-- REST を選択することにより
-  - システム間の結合度を弱くできる
-  - フロントエンド技術や、HTTP エコシステムとの親和性も高い
-  - ただし、それらは設計難易度、実装コストとのトレードオフがある
-- RPC を選択することにより
-  - 設計・実装は容易 (慣れている)
-  - ただし、REST に比してシステム間の結合度は高くなる
-- すべて REST でなくても良い文脈がある
-  - マイクロサービス間通信で REST は必要か?
+---
 
-## 興味深い例
+# DevOps とはなんなのか
 
-- Micro Services 間通信には gRPC が良く使われる
-- その Micro Services を浮かべる Kubernetes の各コンポーネントは REST API で結合されている
+![DevOps](https://thinkit.co.jp/sites/default/files/article_node/1605203.jpg)
 
 ---
 
-# 参考文献
+# DevOps 難しい
 
-- [クックパッドがgRPCを採用するまで
-サービス間通信で抱えていた課題と、RubyでgRPCを運用するための工夫](https://logmi.jp/tech/articles/320715)
-- [なぜポストREST APIが求められるのか？　REST APIがカバーできない2つの要因とその対策](http://kageura.hatenadiary.jp/entry/2018/01/11/%E3%81%AA%E3%81%9C%E3%83%9D%E3%82%B9%E3%83%88REST_API%E3%81%8C%E6%B1%82%E3%82%81%E3%82%89%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%8B%EF%BC%9F_REST_API%E3%81%8C%E3%82%AB%E3%83%90%E3%83%BC%E3%81%A7%E3%81%8D)
-- [HTTP API の設計方向](https://medium.com/@voluntas/http-api-%E3%81%AE%E8%A8%AD%E8%A8%88%E6%96%B9%E5%90%91-7ccaca671d9d)
-- [結合度の概念モデル](https://ja.wikipedia.org/wiki/%E7%B5%90%E5%90%88%E5%BA%A6#%E7%B5%90%E5%90%88%E5%BA%A6%E3%81%AE%E6%A6%82%E5%BF%B5%E3%83%A2%E3%83%87%E3%83%AB)
-- [Best Practices for Designing a Pragmatic RESTful API](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api)
-- [REST vs. RPC: what problems are you trying to solve with your APIs?](https://cloudblog.withgoogle.com/products/application-development/rest-vs-rpc-what-problems-are-you-trying-to-solve-with-your-apis/amp/)
-- [RESTful Web アプリの設計レビューの話](https://www.slideshare.net/t_wada/restful-web-design-review)
+- 研修開発中
